@@ -64,7 +64,7 @@ io.sockets.on('connection', function (socket) {
 
         for (var i = 0; i < len; i++) {
             var options = {
-                hostname: 'api.mailjet.com',
+                host: 'api.mailjet.com',
                 port: 80,
                 path: '/v3/REST/' + resources[i],
                 agent: false,
