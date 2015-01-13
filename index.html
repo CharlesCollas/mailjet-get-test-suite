@@ -100,7 +100,8 @@
                             marginRight: 10,
                             events: {
                                 load: function () {
-                                    var socket = io.connect('http://localhost:5000');
+                                    var port = process.env.PORT || 5000;
+                                    var socket = io.connect(port);
                                     var series = this.series[0];
                                     socket.on('inforesource', function(responses) {
                                         var total = 0;
