@@ -100,8 +100,7 @@
                             marginRight: 10,
                             events: {
                                 load: function () {
-                                    var port = process.env.PORT || 5000;
-                                    var socket = io.connect(port);
+                                    var socket = io.connect();
                                     var series = this.series[0];
                                     socket.on('inforesource', function(responses) {
                                         var total = 0;
