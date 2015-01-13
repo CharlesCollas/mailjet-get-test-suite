@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Mailjet GET test suite</title>
+        <link rel="stylesheet" type="text/css" href="http://charlescollas.fr/bootstrap/css/bootstrap.css" />
+    </head>
+
+    <body>
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;"></div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Resource</th>
+                    <th>Headers</th>
+                    <th>HTTP Response Code</th>
+                    <th>Response time</th>
+                </tr>
+            </thead>
+            <tr><td>/apikey</td><td><div id='apikeyheaders'></div></td><td><div id='apikeycode'></div></td><td><div id='apikey'></div></td></tr>
+            <tr><td>/apikeyaccess</td><td><div id='apikeyaccessheaders'></div></td><td><div id='apikeyaccesscode'></div></td><td><div id='apikeyaccess'></div></td></tr>
+            <tr><td>/apikeytotals</td><td><div id='apikeytotalsheaders'></div></td><td><div id='apikeytotalscode'></div></td><td><div id='apikeytotals'></div></td></tr>
+            <tr><td>/apitoken</td><td><div id='apitokenheaders'></div></td><td><div id='apitokencode'></div></td><td><div id='apitoken'></div></td></tr>
+            <tr><td>/myprofile</td><td><div id='myprofileheaders'></div></td><td><div id='myprofilecode'></div></td><td><div id='myprofile'></div></td></tr>
+            <tr><td>/user</td><td><div id='userheaders'></div></td><td><div id='usercode'></div></td><td><div id='user'></div></td></tr>
+            <tr><td>/sender</td><td><div id='senderheaders'></div></td><td><div id='sendercode'></div></td><td><div id='sender'></div></td></tr>
+            <tr><td>/metasender</td><td><div id='metasenderheaders'></div></td><td><div id='metasendercode'></div></td><td><div id='metasender'></div></td></tr>
+            <tr><td>/domainstatistics</td><td><div id='domainstatisticsheaders'></div></td><td><div id='domainstatisticscode'></div></td><td><div id='domainstatistics'></div></td></tr>
+            <tr><td>/parseroute</td><td><div id='parserouteheaders'></div></td><td><div id='parseroutecode'></div></td><td><div id='parseroute'></div></td></tr>
+            <tr><td>/bouncestatistics</td><td><div id='bouncestatisticsheaders'></div></td><td><div id='bouncestatisticscode'></div></td><td><div id='bouncestatistics'></div></td></tr>
+            <tr><td>/campaign</td><td><div id='campaignheaders'></div></td><td><div id='campaigncode'></div></td><td><div id='campaign'></div></td></tr>
+            <tr><td>/campaignaggregate</td><td><div id='campaignaggregateheaders'></div></td><td><div id='campaignaggregatecode'></div></td><td><div id='campaignaggregate'></div></td></tr>
+            <tr><td>/campaigngraphstatistics</td><td><div id='campaigngraphstatisticsheaders'></div></td><td><div id='campaigngraphstatisticscode'></div></td><td><div id='campaigngraphstatistics'></div></td></tr>
+            <tr><td>/campaignstatistics</td><td><div id='campaignstatisticsheaders'></div></td><td><div id='campaignstatisticscode'></div></td><td><div id='campaignstatistics'></div></td></tr>
+            <tr><td>/campaignoverview</td><td><div id='campaignoverviewheaders'></div></td><td><div id='campaignoverviewcode'></div></td><td><div id='campaignoverview'></div></td></tr>
+            <tr><td>/clickstatistics</td><td><div id='clickstatisticsheaders'></div></td><td><div id='clickstatisticscode'></div></td><td><div id='clickstatistics'></div></td></tr>
+            <tr><td>/trigger</td><td><div id='triggerheaders'></div></td><td><div id='triggercode'></div></td><td><div id='trigger'></div></td></tr>
+            <tr><td>/preferences</td><td><div id='preferencesheaders'></div></td><td><div id='preferencescode'></div></td><td><div id='preferences'></div></td></tr>
+            <tr><td>/aggregategraphstatistics</td><td><div id='aggregategraphstatisticsheaders'></div></td><td><div id='aggregategraphstatisticscode'></div></td><td><div id='aggregategraphstatistics'></div></td></tr>
+            <tr><td>/contact</td><td><div id='contactheaders'></div></td><td><div id='contactcode'></div></td><td><div id='contact'></div></td></tr>
+            <tr><td>/contactslist</td><td><div id='contactslistheaders'></div></td><td><div id='contactslistcode'></div></td><td><div id='contactslist'></div></td></tr>
+            <tr><td>/contactdata</td><td><div id='contactdataheaders'></div></td><td><div id='contactdatacode'></div></td><td><div id='contactdata'></div></td></tr>
+            <tr><td>/contactfilter</td><td><div id='contactfilterheaders'></div></td><td><div id='contactfiltercode'></div></td><td><div id='contactfilter'></div></td></tr>
+            <tr><td>/contacthistorydata</td><td><div id='contacthistorydataheaders'></div></td><td><div id='contacthistorydatacode'></div></td><td><div id='contacthistorydata'></div></td></tr>
+            <tr><td>/contactmetadata</td><td><div id='contactmetadataheaders'></div></td><td><div id='contactmetadatacode'></div></td><td><div id='contactmetadata'></div></td></tr>
+            <tr><td>/listrecipientstatistics</td><td><div id='listrecipientstatisticsheaders'></div></td><td><div id='listrecipientstatisticscode'></div></td><td><div id='listrecipientstatistics'></div></td></tr>
+            <tr><td>/contactslistsignup</td><td><div id='contactslistsignupheaders'></div></td><td><div id='contactslistsignupcode'></div></td><td><div id='contactslistsignup'></div></td></tr>
+            <tr><td>/contactstatistics</td><td><div id='contactstatisticsheaders'></div></td><td><div id='contactstatisticscode'></div></td><td><div id='contactstatistics'></div></td></tr>
+            <tr><td>/geostatistics</td><td><div id='geostatisticsheaders'></div></td><td><div id='geostatisticscode'></div></td><td><div id='geostatistics'></div></td></tr>
+            <tr><td>/graphstatistics</td><td><div id='graphstatisticsheaders'></div></td><td><div id='graphstatisticscode'></div></td><td><div id='graphstatistics'></div></td></tr>
+            <tr><td>/listrecipient</td><td><div id='listrecipientheaders'></div></td><td><div id='listrecipientcode'></div></td><td><div id='listrecipient'></div></td></tr>
+            <tr><td>/liststatistics</td><td><div id='liststatisticsheaders'></div></td><td><div id='liststatisticscode'></div></td><td><div id='liststatistics'></div></td></tr>
+            <tr><td>/message</td><td><div id='messageheaders'></div></td><td><div id='messagecode'></div></td><td><div id='message'></div></td></tr>
+            <tr><td>/messageclientstatistics</td><td><div id='messageclientstatisticsheaders'></div></td><td><div id='messageclientstatisticscode'></div></td><td><div id='messageclientstatistics'></div></td></tr>
+            <tr><td>/messagehistory</td><td><div id='messagehistoryheaders'></div></td><td><div id='messagehistorycode'></div></td><td><div id='messagehistory'></div></td></tr>
+            <tr><td>/messageinformation</td><td><div id='messageinformationheaders'></div></td><td><div id='messageinformationcode'></div></td><td><div id='messageinformation'></div></td></tr>
+            <tr><td>/messagesentstatistics</td><td><div id='messagesentstatisticsheaders'></div></td><td><div id='messagesentstatisticscode'></div></td><td><div id='messagesentstatistics'></div></td></tr>
+            <tr><td>/messagestate</td><td><div id='messagestateheaders'></div></td><td><div id='messagestatecode'></div></td><td><div id='messagestate'></div></td></tr>
+            <tr><td>/messagestatistics</td><td><div id='messagestatisticsheaders'></div></td><td><div id='messagestatisticscode'></div></td><td><div id='messagestatistics'></div></td></tr>
+            <tr><td>/axtesting</td><td><div id='axtestingheaders'></div></td><td><div id='axtestingcode'></div></td><td><div id='axtesting'></div></td></tr>
+            <tr><td>/newsletter</td><td><div id='newsletterheaders'></div></td><td><div id='newslettercode'></div></td><td><div id='newsletter'></div></td></tr>
+            <tr><td>/newsletterblock</td><td><div id='newsletterblockheaders'></div></td><td><div id='newsletterblockcode'></div></td><td><div id='newsletterblock'></div></td></tr>
+            <tr><td>/newsletterproperties</td><td><div id='newsletterpropertiesheaders'></div></td><td><div id='newsletterpropertiescode'></div></td><td><div id='newsletterproperties'></div></td></tr>
+            <tr><td>/newslettertemplate</td><td><div id='newslettertemplateheaders'></div></td><td><div id='newslettertemplatecode'></div></td><td><div id='newslettertemplate'></div></td></tr>
+            <tr><td>/newslettertemplateblock</td><td><div id='newslettertemplateblockheaders'></div></td><td><div id='newslettertemplateblockcode'></div></td><td><div id='newslettertemplateblock'></div></td></tr>
+            <tr><td>/newslettertemplatecategory</td><td><div id='newslettertemplatecategoryheaders'></div></td><td><div id='newslettertemplatecategorycode'></div></td><td><div id='newslettertemplatecategory'></div></td></tr>
+            <tr><td>/newslettertemplateproperties</td><td><div id='newslettertemplatepropertiesheaders'></div></td><td><div id='newslettertemplatepropertiescode'></div></td><td><div id='newslettertemplateproperties'></div></td></tr>
+            <tr><td>/batchjob</td><td><div id='batchjobheaders'></div></td><td><div id='batchjobcode'></div></td><td><div id='batchjob'></div></td></tr>
+            <tr><td>/eventcallbackurl</td><td><div id='eventcallbackurlheaders'></div></td><td><div id='eventcallbackurlcode'></div></td><td><div id='eventcallbackurl'></div></td></tr>
+            <tr><td>/openinformation</td><td><div id='openinformationheaders'></div></td><td><div id='openinformationcode'></div></td><td><div id='openinformation'></div></td></tr>
+            <tr><td>/openstatistics</td><td><div id='openstatisticsheaders'></div></td><td><div id='openstatisticscode'></div></td><td><div id='openstatistics'></div></td></tr>
+            <tr><td>/senderstatistics</td><td><div id='senderstatisticsheaders'></div></td><td><div id='senderstatisticscode'></div></td><td><div id='senderstatistics'></div></td></tr>
+            <tr><td>/toplinkclicked</td><td><div id='toplinkclickedheaders'></div></td><td><div id='toplinkclickedcode'></div></td><td><div id='toplinkclicked'></div></td></tr>
+            <tr><td>/useragentstatistics</td><td><div id='useragentstatisticsheaders'></div></td><td><div id='useragentstatisticscode'></div></td><td><div id='useragentstatistics'></div></td></tr>
+            <tr><td>/widget</td><td><div id='widgetheaders'></div></td><td><div id='widgetcode'></div></td><td><div id='widget'></div></td></tr>
+            <tr><td>/widgetcustomvalue</td><td><div id='widgetcustomvalueheaders'></div></td><td><div id='widgetcustomvaluecode'></div></td><td><div id='widgetcustomvalue'></div></td></tr>
+        </table>
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+        <script src="http://charlescollas.fr/bootstrap/js/bootstrap.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            $(function () {
+                Highcharts.setOptions({
+                    global: {
+                        useUTC: false
+                    }
+                });
+
+                var chart;
+                $(document).ready(function() {
+                    chart = new Highcharts.Chart({
+                        chart: {
+                            renderTo: 'container',
+                            defaultSeriesType: 'spline',
+                            animation: Highcharts.svg, // don't animate in old IE
+                            marginRight: 10,
+                            events: {
+                                load: function () {
+                                    var socket = io.connect('http://localhost:5000');
+                                    var series = this.series[0];
+                                    socket.on('inforesource', function(responses) {
+                                        var total = 0;
+                                        var averagetime = 0;
+                                        for (var response in responses)
+                                        {
+                                            total += responses[response].elapsedtime;
+                                            // Elapsed time
+                                            $('#' + responses[response].name).replaceWith("<div id='"+ responses[response].name +"'>" + responses[response].elapsedtime + ' s</div>');
+                                            // Headers
+                                            $('#' + responses[response].name + 'headers').replaceWith("<div id='"+ responses[response].name +"headers'><kbd>" + responses[response].headers + '</kbd></div>');
+                                            // Button green or red with response code
+                                            if (responses[response].responsecode == 200)
+                                                $('#' + responses[response].name + 'code').replaceWith("<div id='"+ responses[response].name +"code'><button type='button' class='btn btn-success'>" + responses[response].responsecode + '</button></div>');
+                                            else
+                                                $('#' + responses[response].name + 'code').replaceWith("<div id='"+ responses[response].name +"code'><button type='button' class='btn btn-danger'>" + responses[response].responsecode + '</button></div>');
+                                        }
+                                        averagetime = total / responses.length;
+                                        // set up the updating of the chart each second
+                                        var x = (new Date()).getTime(), // current time
+                                            y = averagetime;
+                                        series.addPoint([x, y], true, true);
+                                    })
+                                }
+                            }
+                        },
+                        title: {
+                            text: '<h1>Mailjet GET test suite</h1>'
+                        },
+                        xAxis: {
+                            type: 'datetime',
+                            tickPixelInterval: 150
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Value'
+                            },
+                            plotLines: [{
+                                value: 0,
+                                width: 1,
+                                color: '#808080'
+                            }]
+                        },
+                        tooltip: {
+                            formatter: function () {
+                                return '<b>' + this.series.name + '</b><br/>' +
+                                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                                    Highcharts.numberFormat(this.y, 2);
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+                        series: [{
+                            name: 'Average time',
+                            data: (function() {
+                                    // generate an array of random data
+                                    var data = [],
+                                        time = (new Date()).getTime(),
+                                        i;
+
+                                    for (i = -19; i <= 0; i++) {
+                                        data.push({
+                                            x: time + i * 1000,
+                                            y: 0
+                                        });
+                                    }
+                                    return data;
+                            })()
+                        }]
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
