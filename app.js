@@ -64,14 +64,14 @@ io.sockets.on('connection', function (socket) {
 
         for (var i = 0; i < len; i++) {
             var options = {
-                host: 'api.mailjet.com',
+                hostname: 'api.mailjet.com',
                 port: 80,
                 path: '/v3/REST/' + resources[i],
+                method: 'GET',
                 agent: false,
                 // Make Basic auth
-                headers: {
-                  'Authorization': 'Basic ' + myAPI._authentificate
-                }
+                auth: myAPI._authentificate,
+                secureOptions: constants.SSL_OP_NO_TLSv1_2
             };
             arroptions.push(options);
         }
@@ -94,7 +94,7 @@ io.sockets.on('connection', function (socket) {
         // Begin timer
         var begintime = (new Date()).getTime();
         http.globalAgent.maxSockets = 100;
-        http.get(arroption, function(res) {
+        var req = https.request(arroption, function(res) {
             // Compute elapsed time
             var elapsedtime = (new Date().getTime() - begintime) / 1000;
 
@@ -106,9 +106,13 @@ io.sockets.on('connection', function (socket) {
                 socket.emit('inforesource', responses);
                 responses = [];
             }
-        }).on('error', function(e) {
+        });
+
+        req.on('error', function(e) {
             console.log("Got error: " + e.message + " " + resourcename);
         });
+
+        req.end();
     }
 
     var resources = ['apikey', 'apikeyaccess', 'apikeytotals', 'apitoken', 'myprofile', 'user', 'sender', 'metasender',
